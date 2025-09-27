@@ -1,0 +1,645 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for liquid glass sea blue theme */
+  --background: #ffffff; /* Pure white background for light mode */
+  --foreground: #000000; /* Black text */
+  --card: oklch(0.95 0.03 200 / 0.6); /* Semi-transparent card background */
+  --card-foreground: #000000; /* Black text on cards */
+  --popover: oklch(0.3 0.08 210 / 0.9); /* Dark blue popover */
+  --popover-foreground: oklch(0.98 0.01 200); /* Light text on popovers */
+  --primary: #1c95f0; /* Sea blue primary color */
+  --primary-foreground: oklch(0.98 0.01 200); /* Light text on primary */
+  --secondary: oklch(0.65 0.15 165); /* Emerald accent */
+  --secondary-foreground: oklch(0.98 0.01 200); /* Light text on secondary */
+  --muted: oklch(0.45 0.05 210); /* Muted blue-gray */
+  --muted-foreground: #000000; /* Black text on muted */
+  --accent: oklch(0.65 0.15 165); /* Emerald accent */
+  --accent-foreground: oklch(0.98 0.01 200); /* Light text on accent */
+  --destructive: oklch(0.55 0.2 25); /* Red for errors */
+  --destructive-foreground: oklch(0.98 0.01 200); /* Light text on destructive */
+  --border: oklch(0.35 0.12 210 / 0.3); /* Semi-transparent borders */
+  --input: oklch(0.98 0.01 200); /* Light input background */
+  --ring: oklch(0.65 0.15 165 / 0.5); /* Focus ring */
+  --chart-1: oklch(0.6 0.15 160);
+  --chart-2: oklch(0.65 0.15 165);
+  --chart-3: oklch(0.35 0.12 210);
+  --chart-4: oklch(0.55 0.2 25);
+  --chart-5: oklch(0.7 0.15 85);
+  --radius: 0.75rem; /* Increased radius for liquid glass effect */
+  --sidebar: oklch(0.35 0.12 210);
+  --sidebar-foreground: #000000; /* Black text on sidebar */
+  --sidebar-primary: oklch(0.65 0.15 165);
+  --sidebar-primary-foreground: oklch(0.98 0.01 200);
+  --sidebar-accent: oklch(0.6 0.15 160);
+  --sidebar-accent-foreground: oklch(0.98 0.01 200);
+  --sidebar-border: oklch(0.35 0.12 210 / 0.3);
+  --sidebar-ring: oklch(0.65 0.15 165 / 0.5);
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-montserrat: "Montserrat", serif;
+}
+
+.dark {
+  --background: #000000; /* Pure black background for dark mode */
+  --foreground: #ffffff; /* Changed from oklch to pure white for dark mode text */
+  --card: oklch(0.2 0.05 210 / 0.8);
+  --card-foreground: #ffffff; /* Changed to white text on cards in dark mode */
+  --popover: oklch(0.2 0.05 210);
+  --popover-foreground: oklch(0.98 0.01 200);
+  --primary: #1c95f0; /* Sea blue primary color for dark mode */
+  --primary-foreground: oklch(0.15 0.05 210);
+  --secondary: oklch(0.25 0.05 210);
+  --secondary-foreground: oklch(0.98 0.01 200);
+  --muted: oklch(0.25 0.05 210);
+  --muted-foreground: #ffffff; /* Changed to white text for muted elements in dark mode */
+  --accent: oklch(0.65 0.15 165);
+  --accent-foreground: oklch(0.15 0.05 210);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 200);
+  --border: oklch(0.25 0.05 210);
+  --input: oklch(0.25 0.05 210);
+  --ring: oklch(0.65 0.15 165 / 0.5);
+  --chart-1: oklch(0.6 0.15 160);
+  --chart-2: oklch(0.65 0.15 165);
+  --chart-3: oklch(0.7 0.15 85);
+  --chart-4: oklch(0.6 0.2 300);
+  --chart-5: oklch(0.65 0.2 15);
+  --sidebar: oklch(0.18 0.05 210);
+  --sidebar-foreground: #ffffff; /* Changed to white text on sidebar in dark mode */
+  --sidebar-primary: oklch(0.65 0.15 165);
+  --sidebar-primary-foreground: oklch(0.15 0.05 210);
+  --sidebar-accent: oklch(0.25 0.05 210);
+  --sidebar-accent-foreground: oklch(0.98 0.01 200);
+  --sidebar-border: oklch(0.25 0.05 210 / 0.3);
+  --sidebar-ring: oklch(0.65 0.15 165 / 0.5);
+}
+
+@theme inline {
+  /* Updated font configuration for liquid glass theme */
+  --font-sans: var(--font-open-sans);
+  --font-serif: var(--font-montserrat);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Enhanced liquid glass effects with sea blue theme and scroll animations */
+@layer utilities {
+  /* Updated glass card to work with both light and dark themes */
+  .glass-card {
+    background: var(--bg-glass-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 8px 32px var(--shadow-glass), inset 0 1px 0 var(--border-glass-hover), 0 0 0 1px var(--accent-primary);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  /* Added dark mode glass header styling */
+  .dark .glass-header {
+    background: rgba(28, 149, 240, 0.2);
+    border: 1px solid rgba(28, 149, 240, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px
+      rgba(28, 149, 240, 0.15), 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Added dark mode glass header hover styling */
+  .dark .glass-header:hover {
+    background: rgba(28, 149, 240, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.15), 0 0 0 1px
+      rgba(28, 149, 240, 0.2), 0 6px 24px rgba(0, 0, 0, 0.3);
+  }
+
+
+  /* Updated glass header for theme switching */
+  .glass-header {
+    backdrop-filter: blur(24px);
+    background: #add8e659;
+    border: 1px solid #1c95f04d;
+    border-radius: 50px;
+    transition: all .3s 
+cubic-bezier(.25, .46, .45, .94);
+    box-shadow: 0 12px 40px #1c95f026, inset 0 2px #fff6, 0 0 0 1px #1c95f014, 0 4px 20px #0000000d;
+
+
+  }
+
+
+
+  /* Added glass-card-language class with specific background color #507c9b40 */
+  .glass-card-language {
+    background: #07070740;
+    border: 1px solid rgba(80, 124, 155, 0.3);
+    box-shadow: 0 8px 32px rgba(80, 124, 155, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px
+      rgba(80, 124, 155, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  /* Added dark mode variant for glass-card-language with #fdfdfd40 background */
+  .dark .glass-card-language {
+    background: #fdfdfd40;
+    border: 1px solid rgba(253, 253, 253, 0.3);
+    box-shadow: 0 8px 32px rgba(253, 253, 253, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px
+      rgba(253, 253, 253, 0.1);
+  }
+
+  /* Added dark mode hover state for glass-card-language */
+  .dark .glass-card-language:hover {
+    background: rgba(253, 253, 253, 0.35);
+    border: 1px solid rgba(253, 253, 253, 0.4);
+    box-shadow: 0 12px 40px rgba(253, 253, 253, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px
+      rgba(253, 253, 253, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .glass-button {
+    background: linear-gradient(135deg, rgba(28, 149, 240, 0.9) 0%, rgba(41, 182, 246, 0.9) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(28, 149, 240, 0.3);
+    box-shadow: 0 4px 16px rgba(28, 149, 240, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .glass-button:hover {
+    background: linear-gradient(135deg, rgba(28, 149, 240, 1) 0%, rgba(41, 182, 246, 1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(28, 149, 240, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .liquid-animation {
+    animation: liquid-flow 6s ease-in-out infinite;
+  }
+
+  /* Added wavy text animation for Premium Apps title */
+  /* Wavy text animation - each letter moves up and down in sequence */
+  @keyframes wavy-letter {
+    0%,
+    40%,
+    100% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .wavy-text {
+    display: inline-block;
+  }
+
+  .wavy-letter {
+    display: inline-block;
+    animation: wavy-letter 2s ease-in-out infinite;
+  }
+
+  /* Mobile-specific wavy animation with reduced movement */
+  @media (max-width: 640px) {
+    @keyframes wavy-letter {
+      0%,
+      40%,
+      100% {
+        transform: translateY(0px);
+      }
+      20% {
+        transform: translateY(-4px);
+      }
+    }
+  }
+
+  /* Added download icon bounce animation */
+  @keyframes download-bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-4px);
+    }
+    60% {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Added download button pulse animation */
+  @keyframes download-pulse {
+    0% {
+      box-shadow: 0 4px 16px rgba(28, 149, 240, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 6px 20px rgba(28, 149, 240, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    100% {
+      box-shadow: 0 4px 16px rgba(28, 149, 240, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  /* Updated download icon animations to run continuously without hover */
+  .download-icon-animate {
+    animation: download-bounce 2s ease-in-out infinite;
+  }
+
+  .download-button-animate {
+    animation: download-pulse 3s ease-in-out infinite;
+  }
+
+  /* Added verified badge animations */
+  /* Verified icon pulse animation */
+  @keyframes verified-icon-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Verified badge glow animation */
+  @keyframes verified-badge-glow {
+    0% {
+      box-shadow: 0 2px 8px rgba(28, 149, 240, 0.2);
+    }
+    50% {
+      box-shadow: 0 4px 16px rgba(28, 149, 240, 0.4), 0 0 20px rgba(28, 149, 240, 0.2);
+    }
+    100% {
+      box-shadow: 0 2px 8px rgba(28, 149, 240, 0.2);
+    }
+  }
+
+  .verified-icon-animate {
+    animation: verified-icon-pulse 2.5s ease-in-out infinite;
+  }
+
+  .verified-badge-animate {
+    animation: verified-badge-glow 3s ease-in-out infinite;
+  }
+
+  /* Added hover animations for verified badges when hovering over cards */
+  /* Verified badge hover animation - triggered when card is hovered */
+  @keyframes verified-hover-scale {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 2px 8px rgba(28, 149, 240, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(28, 149, 240, 0.5), 0 0 30px rgba(28, 149, 240, 0.3);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 2px 8px rgba(28, 149, 240, 0.2);
+    }
+  }
+
+  /* Verified icon hover animation - wiggle and rotate effect */
+  @keyframes verified-icon-hover-wiggle {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.1) rotate(-5deg);
+    }
+    50% {
+      transform: scale(1.15) rotate(5deg);
+    }
+    75% {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  .verified-hover-animate {
+    animation: verified-hover-scale 0.6s ease-in-out;
+  }
+
+  .verified-icon-hover-animate {
+    animation: verified-icon-hover-wiggle 0.6s ease-in-out;
+  }
+
+  /* Enhanced scroll animations with better mobile performance */
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Mobile-specific animations with reduced distance and better performance */
+  @media (max-width: 640px) {
+    .slide-in-left {
+      transform: translateX(-20px);
+    }
+
+    .slide-in-right {
+      transform: translateX(20px);
+    }
+  }
+
+  /* Tablet-specific animations */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .slide-in-left {
+      transform: translateX(-30px);
+    }
+
+    .slide-in-right {
+      transform: translateX(30px);
+    }
+  }
+
+  .slide-in-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @keyframes liquid-flow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(0.5deg);
+    }
+  }
+
+  /* Reduced animation intensity on mobile for better performance */
+  @media (max-width: 768px) {
+    @keyframes liquid-flow {
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(0.5deg);
+      }
+    }
+  }
+
+  /* Enhanced liquid glass background animation */
+  .liquid-bg {
+    background: linear-gradient(
+      45deg,
+      rgba(28, 149, 240, 0.1) 0%,
+      rgba(41, 182, 246, 0.15) 25%,
+      rgba(79, 195, 247, 0.1) 50%,
+      rgba(129, 212, 250, 0.15) 75%,
+      rgba(28, 149, 240, 0.1) 100%
+    );
+    background-size: 400% 400%;
+    animation: liquid-gradient 8s ease infinite;
+  }
+
+  @keyframes liquid-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Enhanced mobile-specific optimizations for better touch experience and card layout */
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 12px !important;
+    }
+
+    .glass-card:hover {
+      transform: scale(1.01);
+    }
+
+    .glass-button:active {
+      transform: translateY(0px) scale(0.98);
+    }
+  }
+
+  /* Extra small breakpoint for very small screens */
+  @media (max-width: 375px) {
+    .glass-card {
+      padding: 8px !important;
+    }
+  }
+
+  /* Added line-clamp utility for text truncation on mobile */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Added fade-in slide-up animation for Important Downloads section */
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .fade-slide-up.slide-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile-specific fade-slide-up with reduced distance */
+  @media (max-width: 640px) {
+    .fade-slide-up {
+      transform: translateY(30px);
+    }
+  }
+
+  /* Added title animation for "Tải xuống quan trọng" text */
+  /* Title animation with pulsing scale and glowing text shadow */
+  @keyframes title-pulse-glow {
+    0% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(28, 149, 240, 0.3);
+    }
+    50% {
+      transform: scale(1.02);
+      text-shadow: 0 0 20px rgba(28, 149, 240, 0.6), 0 0 30px rgba(28, 149, 240, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(28, 149, 240, 0.3);
+    }
+  }
+
+  .title-animate {
+    animation: title-pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Added social media icon animations */
+  /* Social media icon floating animation */
+  @keyframes social-icon-float {
+    0% {
+      transform: translateY(0px) scale(1);
+      box-shadow: 0 4px 16px rgba(28, 149, 240, 0.2);
+    }
+    33% {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(28, 149, 240, 0.3);
+    }
+    66% {
+      transform: translateY(2px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(28, 149, 240, 0.25);
+    }
+    100% {
+      transform: translateY(0px) scale(1);
+      box-shadow: 0 4px 16px rgba(28, 149, 240, 0.2);
+    }
+  }
+
+  .social-icon-animate {
+    animation: social-icon-float 4s ease-in-out infinite;
+  }
+
+  /* Staggered animation delays for each social media icon */
+  .social-icon-animate:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .social-icon-animate:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .social-icon-animate:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .social-icon-animate:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  /* Added backInUp entrance animation for Esign Free title */
+  /* BackInUp entrance animation - slides up from far below with scale and fade */
+  @keyframes back-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(200px) scale(0.7);
+    }
+    80% {
+      opacity: 0.8;
+      transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .back-in-up {
+    animation: back-in-up 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  }
+
+  /* Mobile-specific backInUp animation with reduced movement */
+  @media (max-width: 640px) {
+    @keyframes back-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  }
+}
+
+// User dropdown styles
+.user-dropdown {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 8px; // Gap between button and dropdown
+    background: transparent;
+    z-index: 49; // Just below dropdown (z-50)
+  }
+  
+  // Ensure dropdown stays open when hovering over the gap
+  &:hover {
+    .user-dropdown-content {
+      display: block;
+    }
+  }
+}
+
+.user-dropdown-content {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px); // Account for the gap
+  z-index: 50;
+}
